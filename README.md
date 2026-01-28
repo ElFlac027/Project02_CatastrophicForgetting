@@ -36,19 +36,19 @@ Questo progetto consiste nell'implementazione in PyTorch di un modello di **clas
 `pip install torch numpy pandas scikit-learn`
 
 ## Come eseguire
-1. Aprire il notebook data_poisoning_test.ipynb
+1. Aprire il notebook **data_poisoning_test.ipynb**
 2. Eseguire le due celle in ordine per lanciare il test coi parametri predefiniti
 3. Eventualmente è possibile prima modificare i parametri nella sezione dedicata (Fase 2) per un test personalizzato:
 
-porzione_classe_target = 0.30
+                  porzione_classe_target = 0.30
 
-poison_rate_value = 0.70
+                  poison_rate_value = 0.70
 
-classe_da_avvelenare = 1
+                  classe_da_avvelenare = 1
 
-classe_destinazione = 0
+                  classe_destinazione = 0
 
-rumore_std = 0.05
+                  rumore_std = 0.05
 
 epoche_per_iterazione = 6
 
