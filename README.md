@@ -50,7 +50,7 @@ Questo progetto consiste nell'implementazione in PyTorch di un modello di **clas
 
                   rumore_std = 0.05
 
-epoche_per_iterazione = 6
+                  epoche_per_iterazione = 6
 
-num_iterazioni = 3
+                  num_iterazioni = 3
 
