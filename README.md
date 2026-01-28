@@ -17,6 +17,7 @@ Questo progetto consiste nell'implementazione in PyTorch di un modello di **clas
   - Perturbazione sulle feature numeriche
   - Label flipping mirato (Es: backdoor → normal)
 - Metriche: Accuracy globale + classification report
+- Seeds per riproducibilità
 
 ## Dataset
 
@@ -24,6 +25,12 @@ Questo progetto consiste nell'implementazione in PyTorch di un modello di **clas
 - Classi e feature sono descritte nei due file PDF presenti nella directory "Dataset_description"
 - Preprocessing: one-hot su feature `proto` e `conn_state`, standard scaling su tutte le feature, sostituzione `-` → 0
 - Split stratificato: 70% train / 30% test
+
+## Sintesi risultati ottenuti
+1. Accuracy post fase 1: 87,76%
+2. I test hanno mostrato come il modello, seppur semplice, abbia una buona resistenza ai tentativi stealth di avvelenamento cumulativo, mentre soffre poisoning più aggressivi
+3. Soglie per forgetting totale relativamente basse nel poisoning mirato
+4. Replay buffer con dimensione di 4000 offre i migliori risultati con configurazione standard dei parametri, riducendo la dimensione aumenta il forgetting collaterale
 
 
 ## Requisiti
@@ -53,4 +60,3 @@ Questo progetto consiste nell'implementazione in PyTorch di un modello di **clas
                   epoche_per_iterazione = 6
 
                   num_iterazioni = 3
-
