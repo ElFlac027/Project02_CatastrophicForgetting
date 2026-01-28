@@ -11,38 +11,46 @@ Questo progetto consiste nell'implementazione in PyTorch di un modello di **clas
 
 - Modello: Multi-Layer Perceptron (MLP)
 - Approccio: Class-Incremental Learning
-- Replay Buffer: dimensione configurabile (default 4000)
-- Fase 1: Training sequenziale su 5 task (Priorità alle classi meno frequenti)
-- Fase 2: Training con dati "avvelenati":
+- Replay Buffer: experience replay, dimensione a default = 4000, campionamento casuale
+- Fase 1: Training sequenziale su 5 task (Priorità alle classi meno frequenti, 2 classi per task)
+- Fase 2: Training personalizzabile con dati "avvelenati"
   - Perturbazione sulle feature numeriche
-  - Label flipping mirato
-- Metriche: Accuracy globale + classification report completo
+  - Label flipping mirato (Es: backdoor → normal)
+- Metriche: Accuracy globale + classification report
 
 ## Dataset
 
 - File: `train_test_network.csv`
-- Classi (10): normal (0), backdoor (1), ddos (2), dos (3), injection (4), mitm (5), password (6), ransomware (7), scanning (8), xss (9)
-- Preprocessing: one-hot su `proto` e `conn_state`, standard scaling su tutte le feature, sostituzione `-` → 0
+- Classi e feature sono descritte nei due file PDF presenti nella directory "Dataset_description"
+- Preprocessing: one-hot su feature `proto` e `conn_state`, standard scaling su tutte le feature, sostituzione `-` → 0
 - Split stratificato: 70% train / 30% test
 
 
 ## Requisiti
 - Python 3.8+
 - PyTorch (torch, torch.nn, torch.optim)
-- numpy, pandas, scikit-learn
+- numpy
+- pandas
+- scikit-learn
 
 `pip install torch numpy pandas scikit-learn`
 
 ## Come eseguire
-1. Posizionare il file train_test_network.csv nella stessa cartella
-2. Aprire il notebook data_poisoning_test.ipynb
-3. Eseguire le due celle, eventualmente modificando i parametri nella sezione dedicata (Fase 2):
+1. Aprire il notebook data_poisoning_test.ipynb
+2. Eseguire le due celle in ordine per lanciare il test coi parametri predefiniti
+3. Eventualmente è possibile prima modificare i parametri nella sezione dedicata (Fase 2) per un test personalizzato:
 
 porzione_classe_target = 0.30
+
 poison_rate_value = 0.70
+
 classe_da_avvelenare = 1
+
 classe_destinazione = 0
+
 rumore_std = 0.05
+
 epoche_per_iterazione = 6
+
 num_iterazioni = 3
 
