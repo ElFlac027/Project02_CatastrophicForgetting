@@ -5,7 +5,7 @@ Gruppo 20: Sergio Romeo, 0001092962
 
 Progetto numero 2: Adversarial Attack using the Catastrophic Forgetting 
 
-Questo progetto consiste nell'implementazione in PyTorch di un modello di **class-incremental learning** con l'obiettivo di studiare il **catastrophic forgetting** in presenza di un **data poisoning attack**, cercando di quantificare il numero di dati avvelenati necessario a ridurre le capacità del sistema.
+Questo progetto consiste nell'implementazione tramite il framework PyTorch di un modello di **class-incremental learning** con l'obiettivo di studiare il **catastrophic forgetting** in presenza di un **data poisoning attack**, cercando di quantificare il numero di dati avvelenati necessario a ridurre le capacità del sistema.
 
 ## Caratteristiche principali
 
